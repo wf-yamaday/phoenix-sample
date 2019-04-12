@@ -5,6 +5,8 @@ defmodule Sample.Bbs.Board do
   schema "boards" do
     field :description, :string
     field :title, :string
+    
+    has_many :posts, Sample.Bbs.Post, on_delete: :delete_all
 
     timestamps()
   end
