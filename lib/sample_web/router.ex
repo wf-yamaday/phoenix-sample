@@ -5,8 +5,15 @@ defmodule SampleWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", SampleWeb do
+  scope "/api", SampleWeb.API do
     pipe_through :api
-    resources "/boards", BoardController, except: [:new, :edit]
+
+    scope "/v1", V1 do
+      scope "/boards" do
+        get "/", BoardController, :index
+        post "/", BoardController, :create
+        get "/:id", BoardController, :show
+      end
+    end
   end
 end

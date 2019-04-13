@@ -1,4 +1,4 @@
-defmodule SampleWeb.BoardController do
+defmodule SampleWeb.API.V1.BoardController do
   use SampleWeb, :controller
 
   alias Sample.Bbs
@@ -20,24 +20,14 @@ defmodule SampleWeb.BoardController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    board = Bbs.get_board!(id)
-    render(conn, "show.json", board: board)
+  def show(conn, %{"id" => board_id}) do
+     posts = Bbs.get_posts_by_board_id!(board_id)
+    render(conn, "show.json", posts: posts)
   end
 
   def update(conn, %{"id" => id, "board" => board_params}) do
-    board = Bbs.get_board!(id)
-
-    with {:ok, %Board{} = board} <- Bbs.update_board(board, board_params) do
-      render(conn, "show.json", board: board)
-    end
   end
 
   def delete(conn, %{"id" => id}) do
-    board = Bbs.get_board!(id)
-
-    with {:ok, %Board{}} <- Bbs.delete_board(board) do
-      send_resp(conn, :no_content, "")
-    end
   end
 end

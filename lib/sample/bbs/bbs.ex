@@ -7,6 +7,7 @@ defmodule Sample.Bbs do
   alias Sample.Repo
 
   alias Sample.Bbs.Board
+  alias Sample.Bbs.Post
 
   @doc """
   Returns the list of boards.
@@ -35,7 +36,9 @@ defmodule Sample.Bbs do
       ** (Ecto.NoResultsError)
 
   """
-  def get_board!(id), do: Repo.get!(Board, id)
+  def get_posts_by_board_id!(board_id) do
+     Repo.get_by!(Post, board_id: board_id)
+  end
 
   @doc """
   Creates a board.
@@ -101,4 +104,5 @@ defmodule Sample.Bbs do
   def change_board(%Board{} = board) do
     Board.changeset(board, %{})
   end
+
 end
