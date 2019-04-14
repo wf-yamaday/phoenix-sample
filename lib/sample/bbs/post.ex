@@ -4,7 +4,6 @@ defmodule Sample.Bbs.Post do
 
   schema "posts" do
     field :body, :string
-    field :title, :string
     belongs_to :board, Sample.Bbs.Board
 
     timestamps()
@@ -13,7 +12,7 @@ defmodule Sample.Bbs.Post do
   @doc false
   def changeset(post, attrs) do
     post
-    |> cast(attrs, [:body, :title, :board_id])
-    |> validate_required([:body, :title, :board_id])
+    |> cast(attrs, [:body])
+    |> validate_required([:body], [:board_id])
   end
 end
