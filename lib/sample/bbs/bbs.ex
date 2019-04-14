@@ -36,8 +36,20 @@ defmodule Sample.Bbs do
       ** (Ecto.NoResultsError)
 
   """
+
+  @doc """
+  掲示板内の投稿を全て取得する．
+  """
   def get_posts_by_board_id!(board_id) do
-     Repo.get_by!(Post, board_id: board_id)
+    from(p in Post,
+      where: p.board_id == ^board_id
+    )
+    |> Repo.all()
+  end
+  
+  def create_post(board_id) do
+    Repo.get(Board, board_id)
+    
   end
 
   @doc """

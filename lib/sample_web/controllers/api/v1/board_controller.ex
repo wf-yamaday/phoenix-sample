@@ -21,8 +21,8 @@ defmodule SampleWeb.API.V1.BoardController do
   end
 
   def show(conn, %{"id" => board_id}) do
-     posts = Bbs.get_posts_by_board_id!(board_id)
-    render(conn, "show.json", posts: posts)
+    posts = Bbs.get_posts_by_board_id!(board_id)
+    render(conn, "post_index.json", posts: posts)
   end
 
   def update(conn, %{"id" => id, "board" => board_params}) do
