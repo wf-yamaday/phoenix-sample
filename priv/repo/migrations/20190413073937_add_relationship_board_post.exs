@@ -2,8 +2,10 @@ defmodule Sample.Repo.Migrations.AddRelationshipBoardPost do
   use Ecto.Migration
 
   def change do
-    alter table(:posts) do
-      add :board_id, :integer, :references(:boards)
+    create table(:posts) do
+      add :body, :string
+      add :board_id, references(:boards, on_delete: :delete_all), null: false
+      
       timestamps()
     end
   end
