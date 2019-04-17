@@ -47,6 +47,9 @@ defmodule Sample.Bbs do
     |> Repo.all()
   end
   
+  @doc """
+  掲示板に投稿する．
+  """
   def create_post(board_id) do
     Repo.get(Board, board_id)
     
