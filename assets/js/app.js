@@ -9,9 +9,14 @@ import css from "../css/app.css"
 //
 // Import dependencies
 //
+import "phoenix_html"
 
 
 // Import local files
 //
 // Local files can be imported directly using relative paths, for example:
 // import socket from "./socket"
+import Vue from 'vue';
+import App from './App.vue';
+
+new Vue(App).$mount('#app');

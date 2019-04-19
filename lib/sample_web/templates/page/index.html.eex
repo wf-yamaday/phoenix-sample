@@ -1,0 +1,9 @@
+<div id="app"></div>
+<%=
+  content_tag(
+    :script,
+    "",
+    type: "text/javascript",
+    src: Routes.static_path(@conn, "/js/app.js")
+  )
+%>
