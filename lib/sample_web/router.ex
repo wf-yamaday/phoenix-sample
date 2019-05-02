@@ -14,6 +14,10 @@ defmodule SampleWeb.Router do
         post "/", BoardController, :create
         get "/:id", BoardController, :show
       end
+
+      scope "/users" do
+        post "/serach", UserController, :show
+      end
     end
   end
 end
