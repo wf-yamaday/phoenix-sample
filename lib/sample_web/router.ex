@@ -24,7 +24,7 @@ defmodule SampleWeb.Router do
       end
 
       scope "/users" do
-        post "/serach", UserController, :show
+        post "/search", UserController, :show
       end
     end
   end
