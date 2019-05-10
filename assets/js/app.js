@@ -9,12 +9,15 @@ import css from "../css/app.css"
 //
 // Import dependencies
 //
+import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
+// import "phoenix_html"
+import "./src/main.js";
 
 // Import local files
 //
 // Local files can be imported directly using relative paths, for example:
 // import socket from "./socket"
-import Vue from 'vue';
-import App from './App.vue';
+// import Vue from 'vue';
+// import App from './App.vue';
 
-new Vue(App).$mount('#app');
+// new Vue(App).$mount('#app');

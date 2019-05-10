@@ -32,7 +32,7 @@ defmodule SampleWeb.Router do
   scope "/" , SampleWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/*path", PageController, :index
   end
   
 end
