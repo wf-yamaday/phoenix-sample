@@ -10,6 +10,7 @@ defmodule SampleWeb.API.V1.UserController do
     end
 
     def show(conn, params) do
+        IO.puts(FakerElixir.Phone.cell)
         if user =  Accounts.serach(params) do
             render(conn, "user.json", user: user)
         else

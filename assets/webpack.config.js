@@ -16,12 +16,6 @@ module.exports = (env, options) => ({
   entry: {
       './js/app.js': ['./js/app.js'].concat(glob.sync('./vendor/**/*.js'))
   },
-  resolve: {
-    extensions: ['.js', '.vue', '.json'],
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    }
-  },
   output: {
     filename: 'app.js',
     path: path.resolve(__dirname, '../priv/static/js')
@@ -36,14 +30,26 @@ module.exports = (env, options) => ({
         }
       },
       {
+        test: /\.vue$/,
+        use: {
+          loader: 'vue-loader'
+        }
+      },
+      {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
     ]
   },
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      vue$: 'vue/dist/vue.esm.js',
+    }
+  },
   plugins: [
     new MiniCssExtractPlugin({ filename: '../css/app.css' }),
     new CopyWebpackPlugin([{ from: 'static/', to: '../' }]),
-    new VueLoaderPlguin()
+    new VueLoaderPlugin()
   ]
 });
