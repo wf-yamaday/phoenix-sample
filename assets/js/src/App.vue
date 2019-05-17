@@ -1,33 +1,23 @@
 <template>
-    <!-- <v-app id="inspire">
-        
-        <the-navigation-drawer/>
-
-        <v-toolbar/>
-
+    <v-app id="inspire">
+        <the-header/>
         <v-content>
-        <v-layout>
-            <v-container fluid>
-                <div>{{ title }}</div>
-            </v-container>
-        </v-layout>
+            <v-layout>
+                <v-container fluid>
+                    <div>{{ title }}</div>
+                </v-container>
+            </v-layout>
         </v-content>
-
-    </v-app> -->
-    <the-top-page/>
+    </v-app>
 </template>
 
 <script>
-import TheToolbar from "../src/components/atoms/TheToolbar"
-import TheNavigationDrawer from "../src/components/atoms/TheNavigationDrawer"
-import TheTopPage from "../src/components/organisms/TheTopPage"
+import TheHeader from "../src/components/organisms/TheHeader"
 
 export default {
    name: 'app',
    components: {
-       TheToolbar,
-       TheNavigationDrawer,
-       TheTopPage
+       TheHeader
    },
    data () {
     return {
