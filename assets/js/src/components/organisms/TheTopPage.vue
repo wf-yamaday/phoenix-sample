@@ -1,11 +1,7 @@
 <template>
       <v-app id="inspire">
-        
-        <the-navigation-drawer
-        />
-
-        <the-toolbar/>
-
+        <the-toolbar/> 
+        <the-navigation-drawer/>
     </v-app>
 </template>
 
