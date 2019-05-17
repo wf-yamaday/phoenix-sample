@@ -25,9 +25,11 @@ module.exports = (env, options) => ({
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
+        use: [
+          {
           loader: 'babel-loader'
         }
+      ],
       },
       {
         test: /\.vue$/,
